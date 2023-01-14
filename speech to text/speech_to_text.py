@@ -1,11 +1,12 @@
 import speech_recognition as sr
-Audio_file=("voice.wav")
-r=sr.Recognizer()
+Audio_file=("voice.wav")  #upload your audio file in wav format
+r=sr.Recognizer()   #itialise the recogniser
+
 with sr.AudioFile(Audio_file) as source:
-    audio=r.record(source)
+    audio=r.record(source)  #reads the audio file
 
 try:
-    print("audio file contains: "+r.recognize_google(audio))
+    print("audio file contains: "+ r.recognize_google(audio)) #convert audio to text
 except sr.UnknownValueError:
     print("not understand language")
 except sr.RequestError:
